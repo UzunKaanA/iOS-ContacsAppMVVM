@@ -20,12 +20,10 @@ class HomepageViewController: UIViewController {
     contactsTableView.delegate = self
     contactsTableView.dataSource = self
 
-    let c1 = Kisiler(kisi_id: 1, kisi_ad: "Zeynep", kisi_tel: "1111")
-    let c2 = Kisiler(kisi_id: 2, kisi_ad: "Kaan", kisi_tel: "2222")
-    let c3 = Kisiler(kisi_id: 3, kisi_ad: "Yigit", kisi_tel: "3333")
-    contactsList.append(c1)
-    contactsList.append(c2)
-    contactsList.append(c3)
+        _ = viewModel.contactsList.subscribe(onNext: { liste in
+            self.contactsList = liste
+            self.contactsTableView.reloadData()
+        })
   }
 
   @IBOutlet weak var contactsTableView: UITableView!
