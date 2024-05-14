@@ -22,6 +22,7 @@ class HomepageViewModel {
     
     func delete(kisi_id:Int){
         hrepo.delete(contact_id: kisi_id)
+        contactsUp()
     }
     
     func contactsUp(){
